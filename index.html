@@ -7,10 +7,17 @@
     <body>
         <div class="page" ng-controller="LoginController">
             <h1>Github Login</h1>
-            <p>Enter your username and password or just enter the username of the person who's profile you wish to view.</p>
-            <input type="text" class="username" placeholder="Username"/>
-            <input type="password" class="username" placeholder="Password"/>
-            <input type="submit" class="login" value="Login"/>
+            
+            <hr />
+            
+            <form>
+                <h2>Enter your Github credentials to authenticate</h2>
+                <input type="text" class="username" placeholder="Username"/>
+                <input type="password" class="username" placeholder="Password"/>
+                <input type="submit" class="login" value="Login"/>
+            </form>
+
+            <hr />
             
             <form ng-submit="ViewProfile()">
                 <h2>Username of person who's profile you wish to view</h2>
