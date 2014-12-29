@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="GithubClient">
+    <head>
+        <title>Github API Test</title>
+        <link rel="stylesheet" href="css/styles.css"/>
+    </head>
+    <body>
+        <div class="page" ng-controller="LoginController">
+            <h1>Github Login</h1>
+            <p>Enter your username and password or just enter the username of the person who's profile you wish to view.</p>
+            <input type="text" class="username" placeholder="Username"/>
+            <input type="password" class="username" placeholder="Password"/>
+            <input type="submit" class="login" value="Login"/>
+            
+            <form ng-submit="ViewProfile()">
+                <h2>Username of person who's profile you wish to view</h2>
+                <p>Please note that the number of server requests is limited to 60/hr if you choose to view directly without authentication.</p>
+                <input type="text" placeholder="Username" ng-model="username"/>
+                <input type="submit" value="View Profile"/>
+            </form>
+        </div>
+        <script src="js/angular.min.js"></script>
+        
+        <script>
+            
+            angular.module('GithubClient', []).
+            controller('LoginController', ['$scope', '$http', function ($scope, $http) {
+
+                $scope.profile_data;
+
+                $scope.ViewProfile = function() {
+
+                    $http.get("https://api.github.com/users/" + $scope.username).
+                    success( function (data, status, headers, config) {
+
+                        $scope.profile_data = data;
+
+                        document.write('Name:' + data.name + "<br />");
+                        document.write('Company:' + data.company + "<br />");
+                        document.write('Public Repos:' + data.public_repos + "<br />");
+                        document.write('Public Gists:' + data.public_gists + "<br />");
+
+                        console.log(status);
+                    }).
+                    error( function (data, status, headers, config) {
+                        document.write(status);
+                        console.log(status);
+                    });
+
+                };
+                
+            }]);
+            
+        </script>
+    </body>
+</html>
