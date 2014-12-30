@@ -1,4 +1,4 @@
-Github-API-Demo
-===============
+Github-Client
+=============
 
-A demo to view a github profile using Angular and the Github API v3.
+A JS GitHub client. Uses AngularJS and the Github API v3.
