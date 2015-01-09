@@ -1,14 +1,17 @@
-<h2>{{profile_data.name}}</h2>
-<img src="{{profile_data.avatar_url}}" />
-<p ng-if="profile_data.company != (null || undefined)">Company: {{profile_data.company}}</p>
-<p ng-if="profile_data.location != (null || undefined)">Location: {{profile_data.location}}</p>
+<div class="profile">
+    <img src="{{profile_data.avatar_url}}" width="400" />
+    <h2>{{profile_data.name}}</h2>
 
-<hr>
+    <p ng-if="profile_data.company != (null || undefined)">Company: {{profile_data.company}}</p>
+    <p ng-if="profile_data.location != (null || undefined)">Location: {{profile_data.location}}</p>
 
-<p ng-if="profile_data.blog != (null || undefined)">Blog: {{profile_data.blog}}</p>
-<p ng-if="profile_data.email != (null || undefined)">Email: {{profile_data.email}}</p>
+    <hr>
 
-<hr>
+    <p ng-if="profile_data.blog != (null || undefined)">Blog: {{profile_data.blog}}</p>
+    <p ng-if="profile_data.email != (null || undefined)">Email: {{profile_data.email}}</p>
 
-<p ng-if="profile_data.public_repos != (null || undefined)">Public Repos: {{profile_data.public_repos}}</p>
-<p ng-if="profile_data.public_gists != (null || undefined)">Public Gists: {{profile_data.public_gists}}</p>
+    <hr>
+
+    <p ng-if="profile_data.public_repos != (null || undefined)">Public Repos: {{profile_data.public_repos}}</p>
+    <p ng-if="profile_data.public_gists != (null || undefined)">Public Gists: {{profile_data.public_gists}}</p>
+</div>
