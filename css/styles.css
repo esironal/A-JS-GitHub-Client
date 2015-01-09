@@ -10,3 +10,28 @@ body {
 .page hr {
     margin: 40px 0;
 }
+
+.login input[type="text"] {
+    height: 25px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #000;
+    border-radius: 3px;
+    text-indent: 5px;
+    font-family: Courier New, Consolas, monospace;
+
+}
+
+.login input[type="submit"] {
+    border: 0;
+    background-color: #000;
+    border-radius: 3px;
+    height: 30px;
+    color: white;
+    font-family: Courier New, Consolas, monospace;
+}
+
+.login input[type="submit"]:hover {
+    cursor: pointer;
+    cursor: hand;
+}
