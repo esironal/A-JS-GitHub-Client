@@ -5,31 +5,17 @@
         <link rel="stylesheet" href="css/styles.css"/>
     </head>
     <body>
-        <div class="page" ng-controller="LoginController">
+        <div class="page">
             <h1>GitHub Client</h1>
-            
-            <hr />
-            
-            <form>
-                <h2>Login</h2>
-                <h3>Enter your Github credentials to authenticate</h3>
-                <input type="text" class="username" placeholder="Username"/>
-                <input type="password" class="username" placeholder="Password"/>
-                <input type="submit" class="login" value="Login"/>
-            </form>
 
             <hr />
-            
-            <form ng-submit="ViewProfile()">
-                <h2>Or</h2>
-                <h3>Enter the username of person who's profile you wish to view</h3>
-                <p>Please note that the number of server requests is limited to 60/hr if you choose a direct view without authentication.</p>
-                <input type="text" placeholder="Username" ng-model="username"/>
-                <input type="submit" value="View Profile"/>
-            </form>
+
+            <div ng-view></div>
         </div>
 
         <script src="js/angular.min.js"></script>
+        <script src="js/angular-route.min.js"></script>
         <script src="js/app.js"></script>
+
     </body>
 </html>
