@@ -1,3 +1,7 @@
+body {
+    font-family: Courier New, Consolas, monospace;
+}
+
 .page {
     width: 960px;
     margin: 0 auto;
