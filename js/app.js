@@ -1,5 +1,21 @@
 angular.module('GithubClient', ['ngRoute'])
     
+    //Service for profile data
+    .service('ProfileData', function() {
+        
+        var profile_service_data = {};
+
+        return {
+            getData: function() {
+                return profile_service_data;
+            },
+            setData: function(data) {
+                profile_service_data = data;
+            }
+        }
+    })
+
+    //Config
     .config(function($routeProvider) {
         
         $routeProvider
@@ -11,37 +27,40 @@ angular.module('GithubClient', ['ngRoute'])
                 controller: 'ProfileController',
                 templateUrl: 'partials/profile.html'
             })
+            .otherwise({
+                redirectTo: '/'
+            });
     })
 
-    .controller('LoginController', ['$scope', '$http', function ($scope, $http) {
-
-        $scope.profile_data;
-
-        $scope.ViewProfile = function() {
+    //Login Controller
+    .controller('LoginController', ['$scope', '$http', '$location', 'ProfileData', function ($scope, $http, $location, ProfileData) {
+        
+        $scope.FetchProfileData = function() {
 
             $http.get("https://api.github.com/users/" + $scope.username)
-                
+
             .success( function (data, status, headers, config) {
 
                 $scope.profile_data = data;
 
-                document.write('Name:' + data.name + "<br />");
-                document.write('Company:' + data.company + "<br />");
-                document.write('Public Repos:' + data.public_repos + "<br />");
-                document.write('Public Gists:' + data.public_gists + "<br />");
+                ProfileData.setData(data);
+                
+                $location.path('/profile');
 
-                console.log(status);
             })
-            
+
             .error( function (data, status, headers, config) {
-                document.write(status);
-                console.log(status);
+                console.log(data, status);
             });
 
         };
 
     }])
-
-    .controller('ProfileController', ['$scope', '$http', function ($scope, $http) {
+    
+    //Profile Controller
+    .controller('ProfileController', ['$scope', '$http', 'ProfileData', function ($scope, $http, ProfileData) {
+        $scope.profile_data = ProfileData.getData();
+        
+        console.log($scope.profile_data);
 
     }]);
