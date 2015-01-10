@@ -19,7 +19,6 @@ body {
     border-radius: 3px;
     text-indent: 5px;
     font-family: Courier New, Consolas, monospace;
-
 }
 
 .login input[type="submit"] {
@@ -41,4 +40,10 @@ body {
     background-color: #FFF;
     color: #000;
     border: 1px solid;
+}
+
+.profile .profile-data {
+    width: 500px;
+    display: inline-block;
+    float: right;
 }
