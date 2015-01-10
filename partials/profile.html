@@ -3,14 +3,15 @@
     
     <div class="profile-data">
         <h2>{{profile_data.name}}</h2>
+        <h3>({{profile_data.login}})</h3>
 
         <p ng-if="profile_data.company != (null || undefined)">Company: {{profile_data.company}}</p>
         <p ng-if="profile_data.location != (null || undefined)">Location: {{profile_data.location}}</p>
 
         <hr>
 
-        <p ng-if="profile_data.blog != (null || undefined)">Blog: {{profile_data.blog}}</p>
-        <p ng-if="profile_data.email != (null || undefined)">Email: {{profile_data.email}}</p>
+        <p ng-if="profile_data.blog != (null || undefined)">Blog: <a href="{{profile_data.blog}}">{{profile_data.blog}}</a></p>
+        <p ng-if="profile_data.email != (null || undefined)">Email: <a href="mailto:{{profile_data.email}}">{{profile_data.email}}</a></p>
 
         <hr>
 
