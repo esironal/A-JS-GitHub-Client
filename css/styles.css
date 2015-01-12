@@ -55,6 +55,10 @@ h3 {
     border: 1px solid;
 }
 
+.profile .profile-picture {
+    border: 5px solid #222;
+}
+
 .profile .profile-data {
     width: 500px;
     display: inline-block;
