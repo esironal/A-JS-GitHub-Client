@@ -1,6 +1,6 @@
 body {
     font-family: Courier New, Consolas, monospace;
-    background-color: #E2DAB3;
+    background-color: #F5F5F9;
 }
 
 h1 {
@@ -56,7 +56,7 @@ h3 {
 }
 
 .profile .profile-picture {
-    border: 5px solid #222;
+    border: 2px solid #222;
 }
 
 .profile .profile-data {
