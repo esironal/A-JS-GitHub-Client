@@ -38,7 +38,7 @@ angular.module('GithubClient', ['ngRoute'])
                 controller: 'LoginController',
                 templateUrl: 'partials/login.html'    
             })
-            .when('/profile', {
+            .when('/profile/:username', {
                 controller: 'ProfileController',
                 templateUrl: 'partials/profile.html'
             })
@@ -68,7 +68,7 @@ angular.module('GithubClient', ['ngRoute'])
 
                 ProfileData.setData(data);
                 
-                $location.path('/profile');
+                $location.path('/profile/' + $scope.username);
 
             })
 
@@ -96,6 +96,7 @@ angular.module('GithubClient', ['ngRoute'])
                 
                 //save repository list in service
                 ProfileData.setRepositoryList(data);
+                
                 //console.log(data);
                 $location.path('/repositories');
 
