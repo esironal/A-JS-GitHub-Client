@@ -64,3 +64,15 @@ h3 {
     display: inline-block;
     float: right;
 }
+
+
+/*-- Styles for the repository listing page --*/
+
+.repositories ul {
+    list-style: none;
+}
+
+.repositories ul li {
+    border-bottom: 1px solid #CCC;
+    padding: 10px 0;
+}
