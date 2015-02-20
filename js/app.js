@@ -86,7 +86,7 @@ angular.module('GithubClient', ['ngRoute'])
         $scope.profile_data = ProfileData.getData();
         $scope.username = ProfileData.getUser();
         
-        //console.log($scope.profile_data);
+        console.log($scope.profile_data);
         
         $scope.ShowRepositoryList = function() {
         

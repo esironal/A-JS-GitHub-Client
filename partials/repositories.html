@@ -2,7 +2,14 @@
    
     <h2>Repositories</h2>
     
-    <ul ng-repeat="repository in repository_list">
-        <li>{{repository.name}}</li>
+    <ul>
+        <li ng-repeat="repository in repository_list">
+            <a href="">{{repository.name}}</a>
+            <p class="repository-stats">
+                <span class="stargazers">Stargazers: {{repository.stargazers-count}}</span>
+                <span class="watchers">Watchers: {{repository.watchers-count}}</span>
+            </p>
+            <p class="repository-description">{{repository.description}}</p>
+        </li>
     </ul>
 </div>
