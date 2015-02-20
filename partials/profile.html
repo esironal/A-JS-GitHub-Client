@@ -10,12 +10,20 @@
 
         <hr>
 
-        <p ng-if="profile_data.blog != (null || undefined)">Web: <a href="{{profile_data.blog}}">{{profile_data.blog}}</a></p>
-        <p ng-if="profile_data.email != (null || undefined)">Email: <a href="mailto:{{profile_data.email}}">{{profile_data.email}}</a></p>
+        <p ng-if="profile_data.blog != (null || undefined)">
+            Web: <a href="{{profile_data.blog}}">{{profile_data.blog}}</a>
+        </p>
+        
+        <p ng-if="profile_data.email != (null || undefined)">
+            Email: <a href="mailto:{{profile_data.email}}">{{profile_data.email}}</a>
+        </p>
 
         <hr>
 
-        <p ng-if="profile_data.public_repos != (null || undefined)">Public Repos: <a ng-click="ShowRepositoryList()" href="">{{profile_data.public_repos}}</a></p>
+        <p ng-if="profile_data.public_repos != (null || undefined)">
+            Public Repos: <a ng-click="ShowRepositoryList()" href="">{{profile_data.public_repos}}</a
+        </p>
+
         <p ng-if="profile_data.public_gists != (null || undefined)">Public Gists: {{profile_data.public_gists}}</p>
     </div>
 </div>
