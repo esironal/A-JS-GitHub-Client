@@ -33,6 +33,7 @@ h3 {
 .page .request-error {
     padding: 16px 0;
     font-size: 14px;
+    font-style: italic;
 }
 
 .login input[type="text"] {
