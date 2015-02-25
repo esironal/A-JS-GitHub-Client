@@ -74,7 +74,7 @@ angular.module('GithubClient', ['ngRoute'])
 
             .error( function (data, status, headers, config) {
                 console.log(data, status, "profile fetch error");
-                $scope.profileRequestError = "The user does not exist."
+                $scope.profileRequestError = "Error Fetching profile info."
             });
 
         };
