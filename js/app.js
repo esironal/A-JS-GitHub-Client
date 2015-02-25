@@ -57,6 +57,9 @@ angular.module('GithubClient', ['ngRoute'])
         //Fetch Profile Data
         $scope.FetchProfileData = function() {
             
+            //Reset the request-error string
+            $scope.profileRequestError = null;
+            
             //Save username in service
             ProfileData.setUser($scope.username);
 
