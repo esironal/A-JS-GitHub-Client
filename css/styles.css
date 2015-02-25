@@ -1,3 +1,64 @@
+
+@-webkit-keyframes pulse {
+    0% {
+        opacity: 0;
+    }
+    
+    50% {
+        opacity: 1;
+    }
+    
+    100% {
+        opacity: 0;
+    }
+    
+}
+
+@-moz-keyframes pulse {
+    0% {
+        opacity: 0;
+    }
+    
+    50% {
+        opacity: 1;
+    }
+    
+    100% {
+        opacity: 0;
+    }
+    
+}
+
+@-o-keyframes pulse {
+    0% {
+        opacity: 0;
+    }
+    
+    50% {
+        opacity: 1;
+    }
+    
+    100% {
+        opacity: 0;
+    }
+    
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0;
+    }
+    
+    50% {
+        opacity: 1;
+    }
+    
+    100% {
+        opacity: 0;
+    }
+    
+}
+
 body {
     font-family: Courier New, Consolas, monospace;
     background-color: #F5F5F9;
@@ -32,6 +93,11 @@ h3 {
 
 .page .loader {
     font-size: 14px;
+    -webkit-animation: pulse 1s infinite;
+    -moz-animation: pulse 1s infinite;
+    -o-animation: pulse 1s infinite;
+    animation: pulse 1s infinite;
+
 }
 
 .page .request-error {
