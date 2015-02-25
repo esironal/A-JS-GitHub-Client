@@ -16,6 +16,7 @@
         <p class="prompt">Enter the username of the person who's profile you wish to view</p>
         <input type="text" placeholder="Username" ng-model="username" autofocus/>
         <input type="submit" value="View Profile"/>
+        <span class="loader" ng-show="loader_active">searching</span>
         <p ng-show="profileRequestError" class="request-error">({{profileRequestError}})</p>
     </form>
 </div>

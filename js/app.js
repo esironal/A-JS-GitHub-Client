@@ -60,6 +60,9 @@ angular.module('GithubClient', ['ngRoute'])
             //Reset the request-error string
             $scope.profileRequestError = null;
             
+            //Show loader
+            $scope.loader_active = true;
+
             //Save username in service
             ProfileData.setUser($scope.username);
 
@@ -72,12 +75,18 @@ angular.module('GithubClient', ['ngRoute'])
                 ProfileData.setData(data);
                 
                 $location.path('/profile/' + $scope.username);
+                
+                //Hide loader
+                $scope.loader_active = false;
 
             })
 
             .error( function (data, status, headers, config) {
                 console.log(data, status, "profile fetch error");
-                $scope.profileRequestError = "Error Fetching profile info."
+                $scope.profileRequestError = "Error Fetching profile info.";
+                
+                //Hide loader
+                $scope.loader_active = false;
             });
 
         };
