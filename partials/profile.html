@@ -1,5 +1,5 @@
 <div class="profile">
-    <img class="profile-picture" src="{{profile_data.avatar_url}}" width="400" />
+    <img class="profile-picture" src="{{profile_data.avatar_url}}" width="300" />
     
     <div class="profile-data">
         <h2>{{profile_data.name}}</h2>
@@ -26,4 +26,17 @@
 
         <p ng-if="profile_data.public_gists != (null || undefined)">Public Gists: {{profile_data.public_gists}}</p>
     </div>
+
+<!--
+    <div class="lower-half">
+        <h4>Organizations</h4>
+
+
+        <h4>Subscriptions</h4>
+
+
+        <h4>Events</h4>
+
+    </div>
+-->
 </div>
