@@ -157,6 +157,25 @@ h3 {
     clear: both;
 }
 
+.profile .profile-data h2 {
+    text-transform: uppercase;
+    font-size: 26px;
+}
+
+.profile .profile-data h3 {
+    font-variant: normal;
+    font-size: 16px;
+    padding: 10px 0 0;
+    margin-bottom: 40px;
+}
+
+.profile .profile-data p {
+    line-height: 20px;
+    font-size: 14px;
+}
+
+
+
 /*
 .profile .lower-half {
     margin-top: 20px;
