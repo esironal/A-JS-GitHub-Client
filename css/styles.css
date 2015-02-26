@@ -179,6 +179,13 @@ a {
     font-size: 14px;
 }
 
+.profile .profile-data .location {
+    margin-bottom: 20px;
+}
+
+.profile .profile-data .email {
+    margin-bottom: 20px;
+}
 
 
 /*
