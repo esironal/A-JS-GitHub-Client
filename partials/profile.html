@@ -8,7 +8,6 @@
         <p ng-if="profile_data.company != (null || undefined)">Company: {{profile_data.company}}</p>
         <p ng-if="profile_data.location != (null || undefined)">Location: {{profile_data.location}}</p>
 
-        <hr>
 
         <p ng-if="profile_data.blog != (null || undefined)">
             Web: <a href="{{profile_data.blog}}">{{profile_data.blog}}</a>
@@ -18,7 +17,6 @@
             Email: <a href="mailto:{{profile_data.email}}">{{profile_data.email}}</a>
         </p>
 
-        <hr>
 
         <p ng-if="profile_data.public_repos != (null || undefined)">
             Public Repos: <a ng-click="ShowRepositoryList()" href="">{{profile_data.public_repos}}</a
