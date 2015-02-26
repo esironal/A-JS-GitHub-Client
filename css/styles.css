@@ -208,19 +208,44 @@ a {
 /*
 .profile .lower-half {
     margin-top: 20px;
-    clear: both;
-    border-top: 2px solid #444;
 }
 */
 
 
 /*-- Styles for the repository listing page --*/
 
+.repositories h3 .octicon {
+    margin-right: 16px;
+    font-size: 32px;
+}
+
 .repositories ul {
-    list-style: none;
+    margin-top: 20px;
+    border-top: 1px solid #CCC;
 }
 
 .repositories ul li {
     border-bottom: 1px solid #CCC;
-    padding: 10px 0;
+    padding: 16px 0 22px;
+}
+
+.repository-name {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.repositories ul li .repository-stats {
+    color: #999;
+    float: right;
+    font-size: 14px;
+}
+
+.repositories ul li .repository-stats .octicon{
+    margin-right: 2px;
+}
+
+.repositories ul li .repository-description {
+    margin-top: 12px;
+    font-size: 12px;
+    line-height: 1.5em;
 }
