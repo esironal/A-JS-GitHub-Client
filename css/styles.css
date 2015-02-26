@@ -150,6 +150,10 @@ a {
 
 /*-- Styles for the profile page --*/
 
+.profile .upper-half {
+    margin-bottom: 28px;
+}
+
 .profile .profile-picture {
     border: 2px solid #2F2F2F;
     border-radius: 3px;

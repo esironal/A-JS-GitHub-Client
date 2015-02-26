@@ -1,42 +1,43 @@
 <div class="profile">
-    <img class="profile-picture" src="{{profile_data.avatar_url}}" width="300" />
-    
-    <div class="profile-data">
-        <h2>{{profile_data.name}}</h2>
-        <h3>({{profile_data.login}})</h3>
+    <div class="upper-half">
+        <img class="profile-picture" src="{{profile_data.avatar_url}}" width="300" />
 
-        <p ng-if="profile_data.company != (null || undefined)" class="organisation">
-            <span class="octicon octicon-organization"></span>
-            {{profile_data.company}}
-        </p>
-        
-        <p ng-if="profile_data.location != (null || undefined)" class="location">
-            <span class="octicon octicon-location"></span>
-            {{profile_data.location}}
-        </p>
+        <div class="profile-data">
+            <h2>{{profile_data.name}}</h2>
+            <h3>({{profile_data.login}})</h3>
 
+            <p ng-if="profile_data.company != (null || undefined)" class="organisation">
+                <span class="octicon octicon-organization"></span>
+                {{profile_data.company}}
+            </p>
 
-        <p ng-if="profile_data.blog != (null || undefined)" class="web-link">
-            <span class="octicon octicon-link-external"></span>
-            <a href="{{profile_data.blog}}">{{profile_data.blog}}</a>
-        </p>
-        
-        <p ng-if="profile_data.email != (null || undefined)" class="email">
-            <span class="octicon octicon-mail"></span>
-            <a href="mailto:{{profile_data.email}}">{{profile_data.email}}</a>
-        </p>
+            <p ng-if="profile_data.location != (null || undefined)" class="location">
+                <span class="octicon octicon-location"></span>
+                {{profile_data.location}}
+            </p>
 
 
-        <p ng-if="profile_data.public_repos != (null || undefined)" class="repo-count">
-            Public Repos: <a ng-click="ShowRepositoryList()" href="">{{profile_data.public_repos}}</a
-        </p>
+            <p ng-if="profile_data.blog != (null || undefined)" class="web-link">
+                <span class="octicon octicon-link-external"></span>
+                <a href="{{profile_data.blog}}">{{profile_data.blog}}</a>
+            </p>
 
-        <p ng-if="profile_data.public_gists != (null || undefined)" class="gist-count">
-            Public Gists: <span>{{profile_data.public_gists}}</span>
-        </p>
+            <p ng-if="profile_data.email != (null || undefined)" class="email">
+                <span class="octicon octicon-mail"></span>
+                <a href="mailto:{{profile_data.email}}">{{profile_data.email}}</a>
+            </p>
+
+
+            <p ng-if="profile_data.public_repos != (null || undefined)" class="repo-count">
+                Public Repos: <a ng-click="ShowRepositoryList()" href="">{{profile_data.public_repos}}</a
+            </p>
+
+            <p ng-if="profile_data.public_gists != (null || undefined)" class="gist-count">
+                Public Gists: <span>{{profile_data.public_gists}}</span>
+            </p>
+        </div>
     </div>
 
-<!--
     <div class="lower-half">
         <h4>Organizations</h4>
 
@@ -47,5 +48,4 @@
         <h4>Events</h4>
 
     </div>
--->
 </div>
