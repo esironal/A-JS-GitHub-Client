@@ -1,16 +1,27 @@
 <div class="repositories">
    
-    <h2>Repositories</h2>
+    <h3><span class="octicon octicon-repo"></span>Repositories</h3>
     
     <ul>
         <li ng-repeat="repository in repository_list">
             <a class="repository-name" href="">{{repository.name}}</a>
-            <p class="repository-stats">
-                <span class="stargazers">Stargazers: {{repository.stargazers-count}}</span>
-                <span class="watchers">Watchers: {{repository.watchers-count}}</span>
-                <span class="forks">Forks: {{repository.forks-count}}</span>
-<!--                <span class="language">Language: {{repository.language}}</span>-->
-            </p>
+            
+            <span class="repository-stats">
+                <span class="language">{{repository.language}}</span>
+                
+                <span class="stargazers">
+                    <span class="octicon octicon-star"></span>{{repository.stargazers-count}}
+                </span>
+                
+                <span class="watchers">
+                    <span class="octicon octicon-eye-watch"></span>{{repository.watchers-count}}
+                </span>
+                
+                <span class="forks">
+                    <span class="octicon octicon-repo-forked"></span>{{repository.forks-count}}
+                </span>
+            </span>
+            
             <p class="repository-description">{{repository.description}}</p>
         </li>
     </ul>
