@@ -31,7 +31,9 @@
             Public Repos: <a ng-click="ShowRepositoryList()" href="">{{profile_data.public_repos}}</a
         </p>
 
-        <p ng-if="profile_data.public_gists != (null || undefined)" class="gist-count">Public Gists: {{profile_data.public_gists}}</p>
+        <p ng-if="profile_data.public_gists != (null || undefined)" class="gist-count">
+            Public Gists: <span>{{profile_data.public_gists}}</span>
+        </p>
     </div>
 
 <!--

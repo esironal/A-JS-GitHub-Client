@@ -184,9 +184,22 @@ a {
 }
 
 .profile .profile-data .email {
-    margin-bottom: 20px;
+    margin-bottom: 38px;
 }
 
+.profile .profile-data .repo-count {
+    display: inline-block;
+}
+
+.profile .profile-data .gist-count {
+    display: inline-block;
+    margin-left: 48px;
+}
+
+.profile .profile-data .repo-count a,
+.profile .profile-data .gist-count span {
+    font-size: 28px;
+}
 
 /*
 .profile .lower-half {
