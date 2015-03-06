@@ -6,7 +6,7 @@ angular.module('GithubClient', ['ngRoute'])
     //=========================
 
     .service('ProfileData', function() {
-        
+
         var profile_service_data = {};
         var user_name = "";
         var repository_list = {};
@@ -50,7 +50,7 @@ angular.module('GithubClient', ['ngRoute'])
                 controller: 'ProfileController',
                 templateUrl: 'partials/profile.html'
             })
-            .when('/repositories', {
+            .when('/repositories/:username', {
                 controller: 'RepositoryListController',
                 templateUrl: 'partials/repositories.html'
             })
@@ -65,7 +65,7 @@ angular.module('GithubClient', ['ngRoute'])
     //======================
 
     .controller('LoginController', function ($scope, $http, $location, ProfileData) {
-        
+
         //Fetch Profile Data
         //------------------
         $scope.FetchProfileData = function() {
@@ -115,10 +115,10 @@ angular.module('GithubClient', ['ngRoute'])
     //======================
 
     .controller('ProfileController', function ($scope, $http, $location, $routeParams, ProfileData) {
-        
+
         $scope.profile_data = ProfileData.getData();
         $scope.username = ProfileData.getUser();
-        
+
 
         //Code to fetch the Profile Data if the profile page is refreshed
         //---------------------------------------------------------------
@@ -145,13 +145,13 @@ angular.module('GithubClient', ['ngRoute'])
             .error( function (data, status, headers, config) {
                 console.log(data, status, "profile fetch error", headers);
                 $scope.profileRequestError = "Error Fetching profile info.";
-                
+
                 //$location.path("/");
             });
 
         };
-    
-        
+
+
         //Check whether the same user-profile needs to be fetched again or whether a new profile needs to be fetched    
         //----------------------------------------------------------------------------------------------------------
         if( $scope.username == "" ) {
@@ -167,9 +167,6 @@ angular.module('GithubClient', ['ngRoute'])
         //---------------------------------
         $scope.ShowRepositoryList = function() {
 
-            console.log($scope.profile_data);
-
-            
             $http.get("https://api.github.com/users/" + $scope.username + "/repos")
 
             .success( function (data, status, headers, config) {
@@ -178,14 +175,14 @@ angular.module('GithubClient', ['ngRoute'])
                 ProfileData.setRepositoryList(data);
 
                 //console.log(data);
-                $location.path('/repositories');
+                $location.path('/repositories/' + $scope.username);
 
             })
 
             .error( function (data, status, headers, config) {
                 console.log(data, status, "repository-list fetch error");
             });
-        }        
+        }
 
     })
 
@@ -194,10 +191,12 @@ angular.module('GithubClient', ['ngRoute'])
     // Repository List page
     //======================
 
-    .controller('RepositoryListController', function ($scope, $http, $location, ProfileData) {
-        
+    .controller('RepositoryListController', function ($scope, $http, $location, $routeParams, ProfileData) {
+
         $scope.profile_data = ProfileData.getData();
         $scope.repository_list = ProfileData.getRepositoryList();
         //console.log($scope.repository_list);
-                
+    
+        $scope.username = ProfileData.getUser();
+
     });
