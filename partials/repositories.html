@@ -1,6 +1,9 @@
 <div class="repositories">
    
-    <h3><span class="octicon octicon-repo"></span>Repositories</h3>
+    <h3>
+        <span class="octicon octicon-repo"></span>
+        Repositories <span class="username">({{username}})</span>
+    </h3>
     
     <ul>
         <li ng-repeat="repository in repository_list">
@@ -23,6 +26,13 @@
             </span>
             
             <p class="repository-description">{{repository.description}}</p>
+        </li>
+    </ul>
+    
+    <ul class="pagination">
+        <li ng-repeat="y in pageCount(pages) track by $index">
+            <a ng-click="changePage($index+1)">{{$index+1}}</a>
+            <!-- page 1 prints last list, page two the first list and page 9 the 8th list. find out what is track by $index. Pages keep cycling. Maybe I need to edit the page count. Maybe start it from 0. -->
         </li>
     </ul>
 </div>
