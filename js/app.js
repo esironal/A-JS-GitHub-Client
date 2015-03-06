@@ -1,6 +1,10 @@
 angular.module('GithubClient', ['ngRoute'])
-    
-    //Service for profile data
+
+
+    //=========================
+    // Service for profile data
+    //=========================
+
     .service('ProfileData', function() {
         
         var profile_service_data = {};
@@ -30,9 +34,13 @@ angular.module('GithubClient', ['ngRoute'])
         }
     })
 
-    //Config
+
+    //======================
+    // Config
+    //======================
+
     .config(function($routeProvider) {
-        
+
         $routeProvider
             .when('/', {
                 controller: 'LoginController',
@@ -51,20 +59,25 @@ angular.module('GithubClient', ['ngRoute'])
             });
     })
 
-    //Login Controller
+
+    //======================
+    // Landing page
+    //======================
+
     .controller('LoginController', ['$scope', '$http', '$location', 'ProfileData', function ($scope, $http, $location, ProfileData) {
         
         //Fetch Profile Data
         $scope.FetchProfileData = function() {
-            
+
             //Reset the request-error string
             $scope.profileRequestError = null;
-            
+
             //Show loader
             $scope.loader_active = true;
 
             //Save username in service
             ProfileData.setUser($scope.username);
+
 
             $http.get("https://api.github.com/users/" + $scope.username)
 
@@ -73,18 +86,20 @@ angular.module('GithubClient', ['ngRoute'])
                 $scope.profile_data = data;
 
                 ProfileData.setData(data);
-                
+
                 $location.path('/profile/' + $scope.username);
-                
+
                 //Hide loader
                 $scope.loader_active = false;
+
+                console.log(data, status);
 
             })
 
             .error( function (data, status, headers, config) {
-                console.log(data, status, "profile fetch error");
+                console.log(data, status, "profile fetch error", headers);
                 $scope.profileRequestError = "Error Fetching profile info.";
-                
+
                 //Hide loader
                 $scope.loader_active = false;
             });
@@ -93,23 +108,39 @@ angular.module('GithubClient', ['ngRoute'])
 
     }])
 
-    //Profile Controller
+
+    //======================
+    // Profile page
+    //======================
+
     .controller('ProfileController', ['$scope', '$http', '$location', 'ProfileData', function ($scope, $http, $location, ProfileData) {
         
         $scope.profile_data = ProfileData.getData();
         $scope.username = ProfileData.getUser();
+
+        $scope.callFetchMethod = function (message) {
+            console.log(message);
+        }
         
-        console.log($scope.profile_data);
-        
+        if(Object.getOwnPropertyNames($scope.profile_data).length === 0) {
+            $scope.callFetchMethod("No profile data yo");
+        } else {
+            $scope.callFetchMethod("Yep we gots the stuff");
+
+        }
+
         $scope.ShowRepositoryList = function() {
-        
+
+            console.log($scope.profile_data);
+
+
             $http.get("https://api.github.com/users/" + $scope.username + "/repos")
 
             .success( function (data, status, headers, config) {
-                
+
                 //save repository list in service
                 ProfileData.setRepositoryList(data);
-                
+
                 //console.log(data);
                 $location.path('/repositories');
 
@@ -118,15 +149,19 @@ angular.module('GithubClient', ['ngRoute'])
             .error( function (data, status, headers, config) {
                 console.log(data, status, "repository-list fetch error");
             });
-        }
+        }        
 
     }])
 
-    //Repository List Controller
+
+    //======================
+    // Repository List page
+    //======================
+
     .controller('RepositoryListController', ['$scope', '$http', '$location', 'ProfileData', function ($scope, $http, $location, ProfileData) {
         
         $scope.profile_data = ProfileData.getData();
         $scope.repository_list = ProfileData.getRepositoryList();
         //console.log($scope.repository_list);
-
+                
     }]);
