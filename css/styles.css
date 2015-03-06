@@ -219,6 +219,12 @@ a {
     font-size: 32px;
 }
 
+.repositories h3 .username {
+    text-transform: lowercase;
+    font-variant: normal;
+    font-size: 16px;
+}
+
 .repositories ul {
     margin-top: 20px;
     border-top: 1px solid #CCC;
