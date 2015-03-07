@@ -54,6 +54,10 @@ angular.module('GithubClient', ['ngRoute'])
                 controller: 'RepositoryListController',
                 templateUrl: 'partials/repositories.html'
             })
+            .when('/repository/:username/:repository_name', {
+                controller: 'RepositoryController',
+                templateUrl: 'partials/repository.html'
+            })
             .otherwise({
                 redirectTo: '/'
             });
@@ -79,7 +83,7 @@ angular.module('GithubClient', ['ngRoute'])
             //Save username in service
             ProfileData.setUser($scope.username);
 
-
+            //Fetch profile
             $http.get("https://api.github.com/users/" + $scope.username)
 
             .success( function (data, status, headers, config) {
@@ -196,7 +200,25 @@ angular.module('GithubClient', ['ngRoute'])
         $scope.profile_data = ProfileData.getData();
         $scope.repository_list = ProfileData.getRepositoryList();
         //console.log($scope.repository_list);
-    
+
         $scope.username = ProfileData.getUser();
 
+        $scope.OpenRepostoryDetails = function(name) {
+            $location.path( "/repository/" + $scope.username + "/" + name );
+        }
+
+    })
+
+
+    //=========================
+    // Repository details page
+    //=========================
+
+    .controller('RepositoryController', function ($scope, $http, $location, $routeParams, ProfileData) {
+
+        $scope.profile_data = ProfileData.getData();
+        $scope.repository_list = ProfileData.getRepositoryList();
+    
+        $scope.username = $routeParams.username;
+        $scope.repository_name = $routeParams.repository_name;
     });

@@ -6,7 +6,7 @@
     
     <ul>
         <li ng-repeat="repository in repository_list">
-            <a class="repository-name" href="">{{repository.name}}</a>
+            <a class="repository-name" ng-click="OpenRepostoryDetails(repository.name)">{{repository.name}}</a>
             
             <span class="repository-stats">
                 <span class="language">{{repository.language}}</span>
