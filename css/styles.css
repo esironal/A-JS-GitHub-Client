@@ -257,3 +257,20 @@ a {
     font-size: 12px;
     line-height: 1.5em;
 }
+
+
+/*-- Styles for the repository details page --*/
+
+.repository h3.repo-title {
+    
+}
+
+.repository h3.repo-title .octicon {
+    font-size: 36px;
+    margin-right: 12px;
+}
+
+.repository h3.repo-title .username {
+    font-variant: normal;
+    font-size: 16px;
+}
