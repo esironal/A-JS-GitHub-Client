@@ -278,7 +278,7 @@ a {
 }
 
 .repository .description {
-    padding: 20px 0 0 40px;
+    padding: 20px 0 0 0;
     font-size: 14px;
     color: #888;
     line-height: 20px;
