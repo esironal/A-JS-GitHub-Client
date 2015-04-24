@@ -238,9 +238,9 @@ angular.module('GithubClient', ['ngRoute'])
 
         $scope.profile_data = ProfileData.getData();
         $scope.repository_list = ProfileData.getRepositoryList();
-    
+        $scope.repo_info = ProfileData.getRepositoryInfo();
+        
         $scope.username = $routeParams.username;
         $scope.repository_name = $routeParams.repository_name;
         
-//        console.log($scope.profile_data);
     });
