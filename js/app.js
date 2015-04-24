@@ -10,6 +10,7 @@ angular.module('GithubClient', ['ngRoute'])
         var profile_service_data = {};
         var user_name = "";
         var repository_list = {};
+        var repository_info = {};
 
         return {
             getUser: function() {
@@ -30,6 +31,13 @@ angular.module('GithubClient', ['ngRoute'])
             setRepositoryList: function(repo_list) {
                 repository_list = repo_list;
                 console.log(repo_list);
+            },
+            getRepositoryInfo: function() {
+                return repository_info;
+            },
+            setRepositoryInfo: function(repo_info) {
+                repository_info = repo_info;
+                console.log(repo_info);
             }
         }
     })
@@ -204,7 +212,19 @@ angular.module('GithubClient', ['ngRoute'])
         $scope.username = ProfileData.getUser();
 
         $scope.OpenRepostoryDetails = function(name) {
-            $location.path( "/repository/" + $scope.username + "/" + name );
+            
+            $http.get("https://api.github.com/repos/" + $scope.username + "/" +name )
+            
+            .success( function (data, status, headers, config) {
+                
+                ProfileData.setRepositoryInfo(data);
+                
+                $location.path( "/repository/" + $scope.username + "/" + name );
+            })
+            
+            .error( function (data, status, headers, config) {
+                console.log(data, status, "repository fetch error");
+            });
         }
 
     })
@@ -221,4 +241,6 @@ angular.module('GithubClient', ['ngRoute'])
     
         $scope.username = $routeParams.username;
         $scope.repository_name = $routeParams.repository_name;
+        
+//        console.log($scope.profile_data);
     });
