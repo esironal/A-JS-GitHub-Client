@@ -262,7 +262,9 @@ a {
 /*-- Styles for the repository details page --*/
 
 .repository h3.repo-title {
-    
+    font-size: 20px;
+    font-variant: normal;
+    border-bottom: 1px solid #CCC;
 }
 
 .repository h3.repo-title .octicon {
@@ -272,5 +274,11 @@ a {
 
 .repository h3.repo-title .username {
     font-variant: normal;
-    font-size: 16px;
+    font-size: 14px;
+}
+
+.repository .description {
+    padding: 20px 0 0 40px;
+    font-size: 14px;
+    color: #888;
 }
