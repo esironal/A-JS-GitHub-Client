@@ -283,7 +283,8 @@ a {
     font-size: 14px;
     color: #888;
     line-height: 20px;
-    margin: 0 0 10px;
+    margin: 0 0 30px;
+    border-bottom: 1px solid #E2E2E2;
 }
 
 .repository .language-stats {
