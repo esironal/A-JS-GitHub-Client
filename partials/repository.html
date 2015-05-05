@@ -7,10 +7,14 @@
     <p class="description">{{repo_info.description}}</p>
     
     <div class="language-stats">
-        <h3>Languages</h3>  
-        <p ng-repeat="(language, value) in language_percentages track by $index">
-            <span class="bar" style="width: {{value}}%"></span><span>{{language}} - {{value}} %</span>
-        </p>
+        
+        <h3>Languages</h3>
+        
+        <div class="language-stat" ng-repeat="(language, value) in language_percentages track by $index">
+            <p class="label">{{language}}</p>
+            <p class="bar" style="width: {{value}}%"></p>
+        </div>
+        
     </div>
 
 <!-- Maybe show Primary language.   -->
