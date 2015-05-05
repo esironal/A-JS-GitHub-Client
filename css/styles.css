@@ -284,3 +284,16 @@ a {
     color: #888;
     line-height: 20px;
 }
+
+.repository .language-stats {
+    width: 100%;
+}
+
+.repository .language-stats .language-stat {
+    margin: 0 0 10px 0;
+}
+
+.repository .language-stats .language-stat .bar {
+    height: 20px;
+    background-color: #BBBBBB;
+}
