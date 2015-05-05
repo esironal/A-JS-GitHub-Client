@@ -279,18 +279,26 @@ a {
 }
 
 .repository .description {
-    padding: 20px 0 0 0;
+    padding: 20px 0 20px 0;
     font-size: 14px;
     color: #888;
     line-height: 20px;
+    margin: 0 0 10px;
 }
 
 .repository .language-stats {
-    width: 100%;
+    width: 20%;
 }
 
 .repository .language-stats .language-stat {
     margin: 0 0 10px 0;
+}
+
+.repository .language-stats .language-stat .label {
+    text-transform: uppercase;
+    font-size: 13px;
+    margin: 4px 0 4px;
+    letter-spacing: 2px;
 }
 
 .repository .language-stats .language-stat .bar {
