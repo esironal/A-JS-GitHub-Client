@@ -11,6 +11,7 @@ angular.module('GithubClient', ['ngRoute'])
         var user_name = "";
         var repository_list = {};
         var repository_info = {};
+        var repository_languages = {};
 
         return {
             getUser: function() {
@@ -37,7 +38,12 @@ angular.module('GithubClient', ['ngRoute'])
             },
             setRepositoryInfo: function(repo_info) {
                 repository_info = repo_info;
-                console.log(repo_info);
+            },
+            getRepositoryLanguages: function() {
+                return repository_languages;
+            },
+            setRepositoryLanguages: function(repo_langs) {
+                repository_languages = repo_langs;
             }
         }
     })
@@ -218,13 +224,26 @@ angular.module('GithubClient', ['ngRoute'])
             .success( function (data, status, headers, config) {
                 
                 ProfileData.setRepositoryInfo(data);
+
+                //Fetch the languages list
                 
-                $location.path( "/repository/" + $scope.username + "/" + name );
-            })
+                $http.get(data.languages_url)
             
+                .success( function (data, status, headers, config) {
+                    
+                    ProfileData.setRepositoryLanguages(data);
+                    $location.path( "/repository/" + $scope.username + "/" + name );
+                })
+
+                .error( function (data, status, headers, config) {
+                    console.log(data, status, "languages - fetch error");
+                });
+            })
+
             .error( function (data, status, headers, config) {
                 console.log(data, status, "repository fetch error");
-            });
+            });       
+            
         }
 
     })
@@ -243,4 +262,8 @@ angular.module('GithubClient', ['ngRoute'])
         $scope.username = $routeParams.username;
         $scope.repository_name = $routeParams.repository_name;
         
+        $scope.repository_languages = ProfileData.getRepositoryLanguages();
+        console.log($scope.repository_languages);
+
+        console.log($scope.repo_info);
     });
