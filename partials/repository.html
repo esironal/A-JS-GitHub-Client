@@ -6,4 +6,19 @@
     
     <p class="description">{{repo_info.description}}</p>
     
+    <div class="language-stats">
+        <h3>Languages</h3>  
+        <p ng-repeat="(language, value) in language_percentages track by $index">
+            <span class="bar" style="width: {{value}}%"></span><span>{{language}} - {{value}} %</span>
+        </p>
+    </div>
+
+<!-- Maybe show Primary language.   -->
+<!-- Add languages as a graph or pie chart maybe.   -->
+<!-- Network count - Number of forks   -->
+<!-- Stargazers   -->
+<!-- Watchers and subscriber count  -->
+<!-- Maybe try fetching the readme and printing it below the stats. Might have to use the content path   -->
+<!-- Show the Fork icon in big if it has been forked from someone else's repo. Check if 'fork' is true.   -->
+    
 </div>
