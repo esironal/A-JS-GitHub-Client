@@ -274,7 +274,8 @@ a {
 
 .repository h3.repo-title .username {
     font-variant: normal;
-    font-size: 14px;
+    font-size: 18px;
+    text-transform: lowercase;
 }
 
 .repository .description {
