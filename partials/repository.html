@@ -8,8 +8,6 @@
     
     <div class="language-stats">
         
-        <h3>Languages</h3>
-        
         <div class="language-stat" ng-repeat="(language, value) in language_percentages track by $index">
             <p class="label">{{language}}</p>
             <p class="bar" style="width: {{value}}%"></p>
