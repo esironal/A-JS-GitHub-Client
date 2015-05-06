@@ -330,3 +330,8 @@ a {
     margin-bottom: 18px;
     padding: 0 0 6px;
 }
+
+.repository .repo-stats .stat-container p {
+    font-size: 13px;
+    margin: 4px 0 33px;
+}
