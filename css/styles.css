@@ -289,6 +289,16 @@ a {
 
 .repository .language-stats {
     width: 20%;
+    display: inline-block;
+}
+
+.repository .language-stats h3 {
+    font-variant: normal;
+    font-size: 18px;
+    color: #333;
+    border-bottom: 1px solid #333;
+    margin-bottom: 18px;
+    padding: 0 0 6px;
 }
 
 .repository .language-stats .language-stat {
