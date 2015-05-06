@@ -288,8 +288,8 @@ a {
 }
 
 .repository .language-stats {
-    width: 20%;
-    display: inline-block;
+    width: 19%;
+    float: left;
 }
 
 .repository .language-stats h3 {
@@ -315,4 +315,18 @@ a {
 .repository .language-stats .language-stat .bar {
     height: 20px;
     background-color: #BBBBBB;
+}
+
+.repository .repo-stats {
+    width: 79%;
+    float: right;
+}
+
+.repository .repo-stats h3 {
+    font-variant: normal;
+    font-size: 18px;
+    color: #333;
+    border-bottom: 1px solid #333;
+    margin-bottom: 18px;
+    padding: 0 0 6px;
 }
