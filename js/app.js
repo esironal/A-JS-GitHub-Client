@@ -287,7 +287,7 @@ angular.module('GithubClient', ['ngRoute'])
         
         //Get repo languages
         $scope.repository_languages = ProfileData.getRepositoryLanguages();
-        console.log($scope.repository_languages);
+        ////console.log($scope.repository_languages);
 
         console.log($scope.repo_info);
 
@@ -304,11 +304,11 @@ angular.module('GithubClient', ['ngRoute'])
             console.log(($scope.repository_languages[language] / $scope.language_total) * 100);
         }
 
-        console.log($scope.language_percentages);
+        ////console.log($scope.language_percentages);
     
         //Get repo commits
         $scope.commits = ProfileData.getCommitActivity();
-        console.log($scope.commits);
+        ////console.log($scope.commits);
         
         //Add weekly commit count to array
         $scope.commits_weekly = [];
@@ -316,8 +316,24 @@ angular.module('GithubClient', ['ngRoute'])
         for(var i = 0; i < $scope.commits.length; i++) {
             $scope.commits_weekly.push($scope.commits[i]["total"]);
         }
+
+        ////console.log($scope.commits_weekly);
+    
+    
+        //Create relative percentage values for the commit graph. 100% being the highest count value.
+        $scope.highest_commits = 0;
+    
+        for(var i = 0; i < $scope.commits_weekly.length; i++) {
+            
+            if($scope.commits_weekly[i] > $scope.highest_commits) {
+                $scope.highest_commits = $scope.commits_weekly[i];
+            }
+        }
+    
+        for(var i = 0; i < $scope.commits_weekly.length; i++) {
+            $scope.commits_weekly[i] = parseInt(($scope.commits_weekly[i] / $scope.highest_commits) * 100);
+        }
     
         console.log($scope.commits_weekly);
-    
-
+        
     });
