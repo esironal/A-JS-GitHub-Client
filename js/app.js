@@ -337,11 +337,13 @@ angular.module('GithubClient', ['ngRoute'])
                 $scope.highest_commits = $scope.commits_weekly[i];
             }
         }
+        
+        $scope.commits_weekly_percent = [];
     
         for(var i = 0; i < $scope.commits_weekly.length; i++) {
-            $scope.commits_weekly[i] = parseInt(($scope.commits_weekly[i] / $scope.highest_commits) * 100);
+            $scope.commits_weekly_percent[i] = parseInt(($scope.commits_weekly[i] / $scope.highest_commits) * 100);
         }
     
-        console.log($scope.commits_weekly);
+        console.log($scope.commits_weekly_percent);
         
     });
