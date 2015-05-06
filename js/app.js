@@ -312,9 +312,17 @@ angular.module('GithubClient', ['ngRoute'])
         
         //Add weekly commit count to array
         $scope.commits_weekly = [];
+        $scope.timeline_start = 0;
+        $scope.timeline_end = 0;
 
         for(var i = 0; i < $scope.commits.length; i++) {
             $scope.commits_weekly.push($scope.commits[i]["total"]);
+            
+            if(i === 0) {
+                $scope.timeline_start = $scope.commits[i]["week"];
+            } else if (i === ($scope.commits.length - 1)) {
+                $scope.timeline_end = $scope.commits[i]["week"];
+            }
         }
 
         ////console.log($scope.commits_weekly);

@@ -344,3 +344,23 @@ a {
     margin: 0 1px 0 0;
     background-color: #909EE4;
 }
+
+.repository .repo-commits .timeline {
+    border-top: 1px solid #CCC;
+    margin-top: 5px;
+}
+
+.repository .repo-commits .timeline .start,
+.repository .repo-commits .timeline .end {
+    color: #999;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.repository .repo-commits .timeline .start {
+    float: left;
+}
+
+.repository .repo-commits .timeline .end {
+    float: right;
+}
