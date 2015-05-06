@@ -10,8 +10,7 @@
         
         <h3>Languages</h3>
         
-<!--        Maybe add tool tip to stats-->
-        <div class="language-stat" ng-repeat="(language, value) in language_percentages track by $index">
+        <div class="language-stat" ng-repeat="(language, value) in language_percentages track by $index" title="{{language}} - {{value | number:2}}%">
             <p class="label">{{language}}</p>
             <p class="bar" style="width: {{value}}%"></p>
         </div>
@@ -35,7 +34,11 @@
         <h3>Commits</h3>
         
         <div class="commits">
-            <span ng-repeat="commits in commits_weekly track by $index" style="height: {{commits}}%;"></span>
+            <span ng-repeat="commits in commits_weekly track by $index" style="height: {{commits}}%;" title="{{commits}} commits"></span>
+        </div>
+        
+        <div class="timeline">
+            
         </div>
         
     </div>
