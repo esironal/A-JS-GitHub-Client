@@ -305,11 +305,19 @@ angular.module('GithubClient', ['ngRoute'])
         }
 
         console.log($scope.language_percentages);
-        
+    
         //Get repo commits
         $scope.commits = ProfileData.getCommitActivity();
         console.log($scope.commits);
         
-        
+        //Add weekly commit count to array
+        $scope.commits_weekly = [];
+
+        for(var i = 0; i < $scope.commits.length; i++) {
+            $scope.commits_weekly.push($scope.commits[i]["total"]);
+        }
+    
+        console.log($scope.commits_weekly);
+    
 
     });
