@@ -37,7 +37,7 @@
             <span ng-repeat="commits in commits_weekly track by $index" style="height: {{commits}}%;" title="{{commits}} commits"></span>
         </div>
         
-        <div class="timeline">
+        <div class="timeline" ng-if="timeline_start">
             <span class="start">{{timeline_start * 1000 | date:'MMM yyyy'}}</span>
             <span class="end">{{timeline_end * 1000 | date:'MMM yyyy'}}</span>
         </div>
