@@ -12,6 +12,7 @@ angular.module('GithubClient', ['ngRoute'])
         var repository_list = {};
         var repository_info = {};
         var repository_languages = {};
+        var commit_activity = {};
 
         return {
             getUser: function() {
@@ -44,6 +45,12 @@ angular.module('GithubClient', ['ngRoute'])
             },
             setRepositoryLanguages: function(repo_langs) {
                 repository_languages = repo_langs;
+            },
+            getCommitActivity: function() {
+                return commit_activity;
+            },
+            setCommitActivity: function(commits) {
+                commit_activity = commits;
             }
         }
     })
@@ -216,23 +223,39 @@ angular.module('GithubClient', ['ngRoute'])
         //console.log($scope.repository_list);
 
         $scope.username = ProfileData.getUser();
-
+    
+        //Fetch Repository Information
         $scope.OpenRepostoryDetails = function(name) {
             
-            $http.get("https://api.github.com/repos/" + $scope.username + "/" +name )
+            $http.get("https://api.github.com/repos/" + $scope.username + "/" + name )
             
             .success( function (data, status, headers, config) {
                 
                 ProfileData.setRepositoryInfo(data);
 
                 //Fetch the languages list
-                
                 $http.get(data.languages_url)
             
                 .success( function (data, status, headers, config) {
                     
                     ProfileData.setRepositoryLanguages(data);
-                    $location.path( "/repository/" + $scope.username + "/" + name );
+
+                    //Fetch commit activity
+                    $http.get("https://api.github.com/repos/" + $scope.username + "/" + name + "/stats/commit_activity" )
+            
+                    .success( function (data, status, headers, config) {
+                        
+                        //console.log("Commits:");
+                        //console.log(data);
+                        ProfileData.setCommitActivity(data);
+
+                        $location.path( "/repository/" + $scope.username + "/" + name );
+                    })
+
+                    .error( function (data, status, headers, config) {
+                        console.log(data, status, "languages - fetch error");
+                    });
+
                 })
 
                 .error( function (data, status, headers, config) {
@@ -261,13 +284,14 @@ angular.module('GithubClient', ['ngRoute'])
 
         $scope.username = $routeParams.username;
         $scope.repository_name = $routeParams.repository_name;
-
+        
+        //Get repo languages
         $scope.repository_languages = ProfileData.getRepositoryLanguages();
         console.log($scope.repository_languages);
 
         console.log($scope.repo_info);
-        
-        //Calculate Language percentages
+
+        //Calculate language percentages
         $scope.language_total = 0;
         for(language in $scope.repository_languages) {
             $scope.language_total += $scope.repository_languages[language];
@@ -279,8 +303,13 @@ angular.module('GithubClient', ['ngRoute'])
             $scope.language_percentages[language] = ($scope.repository_languages[language] / $scope.language_total) * 100;
             console.log(($scope.repository_languages[language] / $scope.language_total) * 100);
         }
-    
+
         console.log($scope.language_percentages);
-    
         
+        //Get repo commits
+        $scope.commits = ProfileData.getCommitActivity();
+        console.log($scope.commits);
+        
+        
+
     });
