@@ -287,18 +287,19 @@ a {
     border-bottom: 1px solid #E2E2E2;
 }
 
-.repository .language-stats {
-    width: 19%;
-    float: left;
-}
-
-.repository .language-stats h3 {
+.repository h3 {
     font-variant: normal;
     font-size: 18px;
     color: #333;
     border-bottom: 1px solid #333;
     margin-bottom: 18px;
     padding: 0 0 6px;
+}
+
+.repository .language-stats {
+    width: 19%;
+    float: left;
+    margin-right: 2%;
 }
 
 .repository .language-stats .language-stat {
@@ -318,20 +319,28 @@ a {
 }
 
 .repository .repo-stats {
-    width: 79%;
-    float: right;
-}
-
-.repository .repo-stats h3 {
-    font-variant: normal;
-    font-size: 18px;
-    color: #333;
-    border-bottom: 1px solid #333;
-    margin-bottom: 18px;
-    padding: 0 0 6px;
+    width: 19%;
+    float: left;
+    margin-right: 2%;
 }
 
 .repository .repo-stats .stat-container p {
     font-size: 13px;
     margin: 4px 0 33px;
+}
+
+.repository .repo-commits {
+    width: 58%;
+    float: left;
+}
+
+.repository .repo-commits .commits {
+    height: 200px;
+}
+
+.repository .repo-commits .commits span {
+    display: inline-block;
+    width: 9px;
+    margin: 0 1px 0 0;
+    background-color: #909EE4;
 }
