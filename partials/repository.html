@@ -32,14 +32,14 @@
     <div class="repo-commits">
         
         <h3>Commits</h3>
-        
+        <!-- Error in tooltip. Tooltip supposed to show commit count not percentage. -->
         <div class="commits">
             <span ng-repeat="commits in commits_weekly track by $index" style="height: {{commits}}%;" title="{{commits}} commits"></span>
         </div>
         
-        <div class="timeline" ng-if="timeline_start">
-            <span class="start">{{timeline_start * 1000 | date:'MMM yyyy'}}</span>
-            <span class="end">{{timeline_end * 1000 | date:'MMM yyyy'}}</span>
+        <div class="timeline">
+            <span class="start" ng-if="timeline_start">{{timeline_start * 1000 | date:'MMM yyyy'}}</span>
+            <span class="end" ng-if="timeline_end">{{timeline_end * 1000 | date:'MMM yyyy'}}</span>
         </div>
         
     </div>
