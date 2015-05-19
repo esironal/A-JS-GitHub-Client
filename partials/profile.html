@@ -5,25 +5,29 @@
         <div class="profile-data">
             <h2>{{profile_data.name}}</h2>
             <h3>({{profile_data.login}})</h3>
-
+            
+            <p ng-if="profile_data.created_at" class="joined-on">
+                <span class="octicon octicon-clock" title="Joined on"></span>
+                Joined - {{profile_data.created_at | date:'dd MMM yyyy'}}
+            </p>
             <p ng-if="profile_data.company" class="organisation">
-                <span class="octicon octicon-organization"></span>
+                <span class="octicon octicon-organization" title="Organisation"></span>
                 {{profile_data.company}}
             </p>
 
             <p ng-if="profile_data.location" class="location">
-                <span class="octicon octicon-location"></span>
+                <span class="octicon octicon-location" title="Location"></span>
                 {{profile_data.location}}
             </p>
 
 
             <p ng-if="profile_data.blog" class="web-link">
-                <span class="octicon octicon-link-external"></span>
+                <span class="octicon octicon-link-external" title="Link"></span>
                 <a href="{{profile_data.blog}}">{{profile_data.blog}}</a>
             </p>
 
             <p ng-if="profile_data.email" class="email">
-                <span class="octicon octicon-mail"></span>
+                <span class="octicon octicon-mail" title="Email"></span>
                 <a href="mailto:{{profile_data.email}}">{{profile_data.email}}</a>
             </p>
 
