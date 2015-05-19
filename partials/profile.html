@@ -6,33 +6,33 @@
             <h2>{{profile_data.name}}</h2>
             <h3>({{profile_data.login}})</h3>
 
-            <p ng-if="profile_data.company != (null || undefined)" class="organisation">
+            <p ng-if="profile_data.company" class="organisation">
                 <span class="octicon octicon-organization"></span>
                 {{profile_data.company}}
             </p>
 
-            <p ng-if="profile_data.location != (null || undefined)" class="location">
+            <p ng-if="profile_data.location" class="location">
                 <span class="octicon octicon-location"></span>
                 {{profile_data.location}}
             </p>
 
 
-            <p ng-if="profile_data.blog != (null || undefined)" class="web-link">
+            <p ng-if="profile_data.blog" class="web-link">
                 <span class="octicon octicon-link-external"></span>
                 <a href="{{profile_data.blog}}">{{profile_data.blog}}</a>
             </p>
 
-            <p ng-if="profile_data.email != (null || undefined)" class="email">
+            <p ng-if="profile_data.email" class="email">
                 <span class="octicon octicon-mail"></span>
                 <a href="mailto:{{profile_data.email}}">{{profile_data.email}}</a>
             </p>
 
 
-            <p ng-if="profile_data.public_repos != (null || undefined)" class="repo-count">
+            <p ng-if="profile_data.public_repos" class="repo-count">
                 Public Repos: <a ng-click="ShowRepositoryList()" href="">{{profile_data.public_repos}}</a
             </p>
 
-            <p ng-if="profile_data.public_gists != (null || undefined)" class="gist-count">
+            <p ng-if="profile_data.public_gists" class="gist-count">
                 Public Gists: <span>{{profile_data.public_gists}}</span>
             </p>
         </div>
