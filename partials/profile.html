@@ -31,13 +31,15 @@
                 <a href="mailto:{{profile_data.email}}">{{profile_data.email}}</a>
             </p>
 
+            
+            <p class="git-count">
+                <span ng-if="profile_data.public_repos" class="repo-count">
+                    Public Repos: <a ng-click="ShowRepositoryList()" href="">{{profile_data.public_repos}}</a>
+                </span>
 
-            <p ng-if="profile_data.public_repos" class="repo-count">
-                Public Repos: <a ng-click="ShowRepositoryList()" href="">{{profile_data.public_repos}}</a
-            </p>
-
-            <p ng-if="profile_data.public_gists" class="gist-count">
-                Public Gists: <span>{{profile_data.public_gists}}</span>
+                <span ng-if="profile_data.public_gists" class="gist-count">
+                    Public Gists: <span>{{profile_data.public_gists}}</span>
+                </span>
             </p>
         </div>
     </div>

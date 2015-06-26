@@ -185,8 +185,8 @@ a {
     margin-bottom: 20px;
 }
 
-.profile .profile-data .email {
-    margin-bottom: 38px;
+.profile .profile-data .git-count {
+    margin-top: 38px;
 }
 
 .profile .profile-data .repo-count {
