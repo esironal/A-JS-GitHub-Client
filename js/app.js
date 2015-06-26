@@ -253,18 +253,18 @@ angular.module('GithubClient', ['ngRoute'])
                     })
 
                     .error( function (data, status, headers, config) {
-                        console.log(data, status, "languages - fetch error");
+                        console.error(data, status, "languages - fetch error");
                     });
 
                 })
 
                 .error( function (data, status, headers, config) {
-                    console.log(data, status, "languages - fetch error");
+                    console.error(data, status, "languages - fetch error");
                 });
             })
 
             .error( function (data, status, headers, config) {
-                console.log(data, status, "repository fetch error");
+                console.error(data, status, "repository fetch error");
             });       
             
         }
