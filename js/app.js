@@ -168,7 +168,7 @@ angular.module('GithubClient', ['ngRoute'])
             })
 
             .error( function (data, status, headers, config) {
-                console.log(data, status, "profile fetch error", headers);
+                console.error(status, "profile fetch error", headers);
                 $scope.profileRequestError = "Error Fetching profile info.";
 
                 //$location.path("/");
