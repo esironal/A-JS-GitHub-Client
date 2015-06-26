@@ -34,7 +34,7 @@
         <h3>Commits</h3>
         
         <div class="commits">
-            <span ng-repeat="commits in commits_weekly_percent track by $index" style="height: {{commits}}%;" title="{{commits_weekly[$index]}} commits"></span>
+            <span ng-repeat="commits in commits_weekly_percent track by $index" style="height: {{commits}}%;" title="Week {{$index}} - {{commits_weekly[$index]}} commits"></span>
         </div>
         
         <div class="timeline">
