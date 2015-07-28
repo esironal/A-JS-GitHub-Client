@@ -308,8 +308,9 @@ angular.module('GithubClient', ['ngRoute'])
     
         //Get repo commits
         $scope.commits = ProfileData.getCommitActivity();
-        ////console.log($scope.commits);
-        
+        console.log("Yo");
+        console.log($scope.commits);
+
         //Add weekly commit count to array
         $scope.commits_weekly = [];
         $scope.timeline_start = 0;

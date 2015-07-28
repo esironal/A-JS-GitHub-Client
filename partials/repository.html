@@ -36,6 +36,7 @@
         
         <div class="commits">
             <span ng-repeat="commits in commits_weekly_percent track by $index" style="height: {{commits}}%;" title="Week {{$index}} - {{commits_weekly[$index]}} commits"></span>
+            <p class="commit-log-message" ng-hide="commits">No commits during the past year.</p>
         </div>
         
         <div class="timeline">
