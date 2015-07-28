@@ -362,3 +362,8 @@ a {
 .repository .repo-commits .timeline .end {
     float: right;
 }
+
+.repository .repo-commits  .commit-log-message {
+    font-size: 13px;
+    color: #C2C2C2;
+}
